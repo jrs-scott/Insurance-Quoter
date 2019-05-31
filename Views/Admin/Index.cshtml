@@ -1,0 +1,42 @@
+﻿@using insuranceQuoter.ViewModels;
+@model List<CarQuoteVm>
+
+@{
+    ViewBag.Title = "Customer Quotes";
+}
+
+<div class="jumbotron jumbotron-fluid text-center center-block p-2">
+    <div class="container">
+        <h1 class="display-4">Customer Quotes</h1>
+        <p class="lead">This is a list of the most recent car insurance quotes requested from customers.</p>
+    </div>
+</div>
+
+<div class="card col-sm-10 col-md-8 col-lg-6 mx-auto shadow p-0">
+    <div class="card-body p-0">
+        <table class="table text-center mb-0">
+            <thead class="thead-light">
+                <tr>
+                    <th scope="col">First Name</th>
+                    <th scope="col">Last Name</th>
+                    <th scope="col">Email Address</th>
+                    <th scope="col">Quote Amount</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var quote in Model)
+                {
+                    using (Html.BeginForm("Index", "Admin", FormMethod.Get))
+                    {                        
+                        <tr>
+                            <td>@quote.FirstName</td>
+                            <td>@quote.LastName</td>
+                            <td>@quote.EmailAddress</td>
+                            <td>@quote.Quote.ToString("C")</td>
+                        </tr>
+                    }
+                }
+            </tbody>
+        </table>
+    </div>
+</div>

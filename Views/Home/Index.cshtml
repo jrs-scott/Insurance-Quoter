@@ -1,0 +1,78 @@
+﻿@using insuranceQuoter.ViewModels;
+
+@{
+    ViewBag.Title = "Insurance Quote";
+}
+<div class="jumbotron jumbotron-fluid text-center center-block p-2">
+    <div class="container">
+        <h1 class="display-4">Get an instant quote on car insurance!</h1>
+        <p class="lead">Fill out the form below to see your rate.</p>
+    </div>
+</div>
+
+<div class="row no-gutters m-3">
+    <div class="card col-sm-10 col-md-8 col-lg-4 mx-auto shadow border-success">
+        <div class="card-body">
+            @using (Html.BeginForm("QuoteRequest", "Home", FormMethod.Post))
+            {
+                <div class="row no-gutters">
+                    <div class="form-group col-md-12">
+                        First Name:
+                        <input name="firstName" type="text" class="form-control" placeholder="First name" required />
+                    </div>
+                    <div class="form-group col-md-12">
+                        Last Name:
+                        <input name="lastName" type="text" class="form-control" placeholder="Last name" required />
+                    </div>
+                    <div class="form-group col-md-12">
+                        Email Address:
+                        <input name="emailAddress" type="email" class="form-control" placeholder="Email address" required />
+                    </div>
+                    <div class="form-group col-md-12">
+                        Date of Birth:
+                        <input name="dateOfBirth" type="date" class="form-control" placeholder="Date of birth" required />
+                    </div>
+                    <div class="form-group col-md-12">
+                        Car Year:
+                        <input name="carYear" type="text" class="form-control" placeholder="Year car was manufactured" required />
+                    </div>
+                    <div class="form-group col-md-12">
+                        Car Make:
+                        <input name="carMake" type="text" class="form-control" placeholder="Make of your car" required />
+                    </div>
+                    <div class="form-group col-md-12">
+                        Car Model:
+                        <input name="carModel" type="text" class="form-control" placeholder="Model of your car" required />
+                    </div>
+                    <div class="form-group col-md-12">
+                        How many speeding tickets do you have?
+                        <input name="speedingTickets" type="text" class="form-control" placeholder="Number of tickets" required />
+                    </div>
+                    <div class="form-group form-check-inline">
+                        Have you had a DUI?
+                    </div>
+                    <div class="form-group form-check-inline">
+                        <input class="form-check-input" type="radio" name="dui" value="true" />
+                        <label class="form-check-label" for="dui">
+                            Yes
+                        </label>
+                    </div>
+                    <div class="form-group form-check-inline">
+                        <input class="form-check-input" type="radio" name="dui" value="false" checked />
+                        <label class="form-check-label" for="dui">
+                            No
+                        </label>
+                    </div>
+                    <div class="form-group col-md-12">
+                        Select coverage type:
+                        <select name="coverageType">
+                            <option value="full">Full Coverage</option>
+                            <option value="liability">Liability Coverage</option>
+                        </select>
+                    </div>
+                    <button type="submit" class="btn btn-success btn-block">Get Quote</button>
+                </div>
+            }
+        </div>
+    </div>
+</div>
